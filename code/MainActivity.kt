@@ -216,7 +216,7 @@ fun NumberInputField(value: String, onValueChange: (String) -> Unit, placeholder
     TextField(
         value = value,
         onValueChange = { newValue ->
-            if (newValue.all { it.isDigit() }) {
+            if (newValue.isEmpty() || newValue == "-" || newValue.toIntOrNull() != null) {
                 onValueChange(newValue)
             }
         },
